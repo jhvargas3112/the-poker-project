@@ -1,0 +1,12 @@
+language:
+  - java
+jdk:
+  - jdk-11.0.6
+script:
+  - mvn clean test
+branches:
+  only:
+    - master
+    - develop
+after_script:
+  - bash ./telegram_notification.sh
