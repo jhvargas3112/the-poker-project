@@ -3,7 +3,7 @@ language:
 #jdk:
 #  - jdk-11.0.6
 script:
-  - mvn build
+  - mvn clean test
 branches:
   only:
     - master
