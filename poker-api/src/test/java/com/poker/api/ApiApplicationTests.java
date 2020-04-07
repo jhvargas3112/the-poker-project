@@ -1,9 +1,9 @@
 package com.poker.api;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootTest
+@SpringBootApplication
 class ApiApplicationTests {
 	@Test
 	void contextLoads() {
