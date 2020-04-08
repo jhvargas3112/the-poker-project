@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 class ApiApplicationTests {
-	@Test
-	void contextLoads() {
-	}
+  @Test
+  void contextLoads() {
+  }
 }
