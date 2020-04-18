@@ -1,4 +1,4 @@
-package com.poker.project.multimodule.base;
+package com.poker.project.multimodule.base.cartas;
 
 /**
  * Los palos de la baraja francesa

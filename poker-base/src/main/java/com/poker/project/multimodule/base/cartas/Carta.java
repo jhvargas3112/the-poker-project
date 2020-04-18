@@ -1,4 +1,4 @@
-package com.poker.project.multimodule.base;
+package com.poker.project.multimodule.base.cartas;
 
 /**
  * Estructura carta con palo y numero

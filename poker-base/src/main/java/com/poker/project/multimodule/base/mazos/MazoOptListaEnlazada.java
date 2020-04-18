@@ -5,10 +5,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import com.poker.project.multimodule.base.Carta;
-import com.poker.project.multimodule.base.Palo;
+import com.poker.project.multimodule.base.cartas.Carta;
+import com.poker.project.multimodule.base.cartas.Palo;
 
 /**
+ * Mazo peor.
+ * bueno que una lista enlazada puede borrar en el medio sin reordenar las otras
+ * pero el acceso indice no es constante
+ * 
  * Lista enlazada, al borrar , quita del medio
  * @author victor
  *

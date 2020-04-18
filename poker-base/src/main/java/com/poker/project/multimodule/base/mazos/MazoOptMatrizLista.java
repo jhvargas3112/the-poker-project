@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.mazos;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -16,27 +17,39 @@ import com.poker.project.multimodule.base.cartas.Palo;
  * conteo , constante
  * saber si existe una carta, acceso constante
  * 
+ * Clase mixta donde las cartas ya las tengo ordenadas
+ * 
  * @author victor
  *
  */
-public class MazoOptMatriz implements MazoCartas
+public class MazoOptMatrizLista implements MazoCartas
 {
 	private Carta mazo[][];
 	private boolean seleccionada[][];
-	private int cont;
+	//private int cont;
+
+	List<Carta> cartasOrdenadas;
 	
 	private static final  int NUM_PALOS=  Palo.values().length;
 	private static final  int NUM_CARTAS= 13;
 	
-	public MazoOptMatriz()
+	Random r = new Random(System.currentTimeMillis());
+
+	
+	public MazoOptMatrizLista()
 	{
 		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
-		cont = NUM_PALOS*NUM_CARTAS;
+		//cont = NUM_PALOS*NUM_CARTAS;
+		cartasOrdenadas= new LinkedList<>();
 		for(Palo p : Palo.values())
 		{
 			for(int i=0;i<NUM_CARTAS;i++)//cambiado
-				mazo[p.ordinal()][i]= new Carta(i+1,p);
+			{
+				Carta carta=new Carta(i+1,p);
+				mazo[p.ordinal()][i]= carta;
+				cartasOrdenadas.add(carta);
+			}
 		}
 	}
 	
@@ -50,11 +63,18 @@ public class MazoOptMatriz implements MazoCartas
 	 */
 	public Carta dameCartaAleatoria()
 	{
+		 Carta cartaElegida=cartasOrdenadas.get(r.nextInt(cartasOrdenadas.size()));
+		 
+		 seleccionada[cartaElegida.getPalo().ordinal()-1][cartaElegida.getNum()-1]=true;
+		 
+		 return cartaElegida;
+		 
+		 
+		/*
 		if(cont==0){
 			return null;
 		}else{
 		
-			Random r = new Random(System.currentTimeMillis());
 					
 			int nPalo = r.nextInt(NUM_PALOS);
 			int nCarta = r.nextInt(NUM_CARTAS);
@@ -71,10 +91,10 @@ public class MazoOptMatriz implements MazoCartas
 				c = new Carta(nCarta+1,p);
 			}
 			
-			cont--;
+			//cont--;
 			seleccionarCarta(c);
 			return c;
-		}
+		}*/
 		
 	}
 	
@@ -125,7 +145,7 @@ public class MazoOptMatriz implements MazoCartas
 	 */
 	public boolean estaVacio()
 	{
-		return cont==0;//mazo.isEmpty();
+		return cartasOrdenadas.isEmpty();
 	}
 	
 	
@@ -135,7 +155,7 @@ public class MazoOptMatriz implements MazoCartas
 	 */
 	public int quedanNumCartas()
 	{
-		return cont;
+		return cartasOrdenadas.size();
 	}
 	
 	
@@ -173,7 +193,7 @@ public class MazoOptMatriz implements MazoCartas
 		if(!estaSeleccionada(c))
 		{
 			seleccionada[p][n]=true;
-			cont--;
+			cartasOrdenadas.remove(c);
 		}
 		
 	}
@@ -230,7 +250,12 @@ public class MazoOptMatriz implements MazoCartas
 			System.exit(-1);
 		}
 		if(b)
+		{
+			cartasOrdenadas.remove(cartaConcreta);
 			return mazo[p][n];
+		
+			
+		}
 		else return null;
 	}
 	

@@ -3,8 +3,15 @@ package com.poker.project.multimodule.base.mazos;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.poker.project.multimodule.base.Carta;
+import com.poker.project.multimodule.base.cartas.Carta;
 
+/**
+ * Mazo de cartas que permite extraer cartas aleatorias y concretas
+ * Sabiendo si una carta pertenece al mazo
+ * 
+ * @author victor
+ *
+ */
 public interface MazoCartas 
 {
 	/**

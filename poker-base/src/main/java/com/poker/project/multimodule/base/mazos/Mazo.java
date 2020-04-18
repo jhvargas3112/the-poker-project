@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.poker.project.multimodule.base.Carta;
-import com.poker.project.multimodule.base.Palo;
+import com.poker.project.multimodule.base.cartas.Carta;
+import com.poker.project.multimodule.base.cartas.Palo;
 
 /**
  * Estructura de un mazo de cartas de una baraja francesa
