@@ -1,21 +1,29 @@
 package com.poker.project.multimodule.base.mazos;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.poker.project.multimodule.base.Carta;
 import com.poker.project.multimodule.base.Palo;
 
-public class MazoOpt2 implements MazoOpt
+/**
+ * matriz de cartas 
+ * acceso constante
+ * al pedir aleatoria, necesita 2 aleatorios
+ * @author victor
+ *
+ */
+public class MazoOptMatriz implements MazoCartas
 {
 	private Carta mazo[][];
 	private boolean seleccionada[][];
 	private int cont;
 	
-	private final static int NUM_PALOS=  Palo.values().length;
-	private final static int NUM_CARTAS= 13;
+	private static final  int NUM_PALOS=  Palo.values().length;
+	private static final  int NUM_CARTAS= 13;
 	
-	public MazoOpt2()
+	public MazoOptMatriz()
 	{
 		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
@@ -32,6 +40,7 @@ public class MazoOpt2 implements MazoOpt
 	
 	/**
 	 * Extrae una carta del mazo
+	 * 2 aleatoriios y lugo acceso constante
 	 * @return carta aleatoria
 	 */
 	public Carta dameCartaAleatoria()
@@ -71,7 +80,7 @@ public class MazoOpt2 implements MazoOpt
 	 * Extrae n cartas del mazo
 	 * @return cartas aleatorias
 	 */
-	public ArrayList<Carta> dameNCartas(int n)
+	public List<Carta> dameNCartasAleatoria(int n)
 	{
 		 ArrayList<Carta> a = new  ArrayList<>();
 		 for(int i=0;i<n;i++)
@@ -98,7 +107,7 @@ public class MazoOpt2 implements MazoOpt
 
 
 	@Override
-	public void insertaCarta(ArrayList<Carta> l) {
+	public void insertaCarta(List<Carta> l) {
 
 		for(Carta c: l)
 			insertaCarta(c);
@@ -106,6 +115,7 @@ public class MazoOpt2 implements MazoOpt
 	
 	/**
 	 * Devuelve si hay cartas en el mazo
+	 * Coste constante
 	 * @return
 	 */
 	public boolean estaVacio()
@@ -114,8 +124,14 @@ public class MazoOpt2 implements MazoOpt
 	}
 	
 	
-	
-	
+	/**
+	 * Coste constante
+	 * @return
+	 */
+	public int quedanNumCartas()
+	{
+		return cont;
+	}
 	
 	
 	
@@ -140,7 +156,9 @@ public class MazoOpt2 implements MazoOpt
 	
 	
 	
-	
+	/**
+	 * Coste constante
+	 */
 	public void seleccionarCarta(Carta c )
 	{
 		if(c==null) return ;
@@ -155,6 +173,9 @@ public class MazoOpt2 implements MazoOpt
 		
 	}
 	
+	/**
+	 * Coste constante
+	 */
 	public boolean estaSeleccionada(Carta c)
 	{
 		if(c==null) return false;
@@ -174,6 +195,55 @@ public class MazoOpt2 implements MazoOpt
 			System.exit(-1);
 		}
 		return b;
+	}
+
+
+
+
+	@Override
+/**
+ * Coste constante
+ */
+	public Carta dameCartaConcreta(Carta cartaConcreta) {
+		if(cartaConcreta==null) 
+			return null;
+		
+		
+		int n= cartaConcreta.getNum()-1;
+		if(n==13)n=1; // si es as
+		int p= cartaConcreta.getPalo().ordinal();
+		boolean b=false;
+		try
+		{
+			b= this.seleccionada[p][n];
+			
+			
+		}catch(Exception e)
+		{
+			System.err.println("mazo. esta seleccionada "+cartaConcreta + " "+ n +" "+ p );
+			
+			System.exit(-1);
+		}
+		if(b)
+			return mazo[p][n];
+		else return null;
+	}
+	
+
+
+
+
+	@Override
+	/**
+	 * Coste lineal
+	 */
+	public List<Carta> dameNCartasConcretas(List<Carta> cartasConcretas) {
+		
+		List<Carta> cartas= new ArrayList<>();
+		for (Carta carta : cartasConcretas) {
+			cartas.add(dameCartaConcreta(carta));
+		}
+		return null;
 	}
 
 

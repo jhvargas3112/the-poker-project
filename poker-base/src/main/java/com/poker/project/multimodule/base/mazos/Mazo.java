@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.mazos;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import com.poker.project.multimodule.base.Carta;
@@ -13,18 +14,18 @@ import com.poker.project.multimodule.base.Palo;
  */
 public class Mazo 
 {
-	private ArrayList<Carta> mazo;
+	private List<Carta> cartas;
 	private boolean seleccionada[][];
 	
 	public Mazo()
 	{
-		mazo = new  ArrayList<Carta>();
+		cartas = new  ArrayList<>();
 		seleccionada= new boolean[4][13];
 		
 		for(Palo p : Palo.values())
 		{
 			for(int i=1;i<14;i++)//cambiado
-				mazo.add(new Carta(i,p));
+				cartas.add(new Carta(i,p));
 		}
 	}
 	
@@ -58,13 +59,13 @@ public class Mazo
 		Carta c =null;
 		
 	//	System.out.println("mazo de cartas:  "+mazo.size());
-		while(!estaSeleccionada(c) && !mazo.isEmpty())
+		while(!estaSeleccionada(c) && !cartas.isEmpty())
 		{
-			i = r.nextInt(mazo.size());
-			c= mazo.get(i);
+			i = r.nextInt(cartas.size());
+			c= cartas.get(i);
 			if(!estaSeleccionada(c))
 			{
-				mazo.remove(i);
+				cartas.remove(i);
 				seleccionarCarta(c);
 			}
 			else c=null;
@@ -95,7 +96,7 @@ public class Mazo
 	 */
 	public boolean estaVacio()
 	{
-		return mazo.isEmpty();
+		return cartas.isEmpty();
 	}
 	
 	/**
@@ -123,7 +124,7 @@ public class Mazo
 			//System.out.println("esta la carta " +c);
 			seleccionarCarta(c);
 			//System.out.println("borro la carta " +c);
-			return mazo.remove(c);
+			return cartas.remove(c);
 		}
 		else return false;
 	}
@@ -132,7 +133,7 @@ public class Mazo
 	public Mazo clonar()
 	{
 		Mazo m = new Mazo();
-		m.mazo.addAll(this.mazo);//bien???
+		m.cartas.addAll(this.cartas);//bien???
 		
 		for(Palo p : Palo.values())
 			for(int i=1;i<14;i++)//cambiado
