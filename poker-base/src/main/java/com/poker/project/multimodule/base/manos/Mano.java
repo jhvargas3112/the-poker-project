@@ -2,7 +2,7 @@ package com.poker.project.multimodule.base.manos;
 
 import java.util.ArrayList;
 
-import poker.negocio.dtos.cartas.Carta;
+import com.poker.project.multimodule.base.Carta;
 
 
 /**

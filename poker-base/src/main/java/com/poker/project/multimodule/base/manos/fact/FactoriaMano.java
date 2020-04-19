@@ -2,18 +2,18 @@ package com.poker.project.multimodule.base.manos.fact;
 
 import java.util.ArrayList;
 
-import poker.negocio.dtos.cartas.Carta;
-import poker.negocio.dtos.manos.CartaMasAlta;
-import poker.negocio.dtos.manos.Color;
-import poker.negocio.dtos.manos.DoblesParejas;
-import poker.negocio.dtos.manos.Escalera;
-import poker.negocio.dtos.manos.EscaleraColor;
-import poker.negocio.dtos.manos.Full;
-import poker.negocio.dtos.manos.Mano;
-import poker.negocio.dtos.manos.ManoEnum;
-import poker.negocio.dtos.manos.Pareja;
-import poker.negocio.dtos.manos.Poker;
-import poker.negocio.dtos.manos.Trio;
+import com.poker.project.multimodule.base.Carta;
+import com.poker.project.multimodule.base.manos.CartaMasAlta;
+import com.poker.project.multimodule.base.manos.Color;
+import com.poker.project.multimodule.base.manos.DoblesParejas;
+import com.poker.project.multimodule.base.manos.Escalera;
+import com.poker.project.multimodule.base.manos.EscaleraColor;
+import com.poker.project.multimodule.base.manos.Full;
+import com.poker.project.multimodule.base.manos.Mano;
+import com.poker.project.multimodule.base.manos.ManoEnum;
+import com.poker.project.multimodule.base.manos.Pareja;
+import com.poker.project.multimodule.base.manos.Poker;
+import com.poker.project.multimodule.base.manos.Trio;
 
 
 /**

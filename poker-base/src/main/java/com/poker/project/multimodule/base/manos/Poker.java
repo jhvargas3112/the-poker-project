@@ -2,9 +2,9 @@ package com.poker.project.multimodule.base.manos;
 
 import java.util.ArrayList;
 
-import poker.negocio.constantes.ConstantesPR1;
-import poker.negocio.dtos.cartas.Carta;
-import poker.negocio.util.ordenar.OrdenarCartas;
+import com.poker.project.multimodule.base.Carta;
+import com.poker.project.multimodule.base.constantes.ConstantesPR1;
+import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
 
 /**
  * Mano Poker
