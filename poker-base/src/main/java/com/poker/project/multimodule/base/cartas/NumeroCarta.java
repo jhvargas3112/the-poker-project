@@ -1,5 +1,10 @@
 package com.poker.project.multimodule.base.cartas;
 
+/**
+ * Alternativa, poner enumerado al numero de la carta
+ * @author victor
+ *
+ */
 public enum NumeroCarta 
 {
 	
