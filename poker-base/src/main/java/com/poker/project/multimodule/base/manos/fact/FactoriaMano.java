@@ -20,6 +20,7 @@ import com.poker.project.multimodule.base.manos.Trio;
  * 
  * @author victor
  * Segun unos parametros ya calculados, devuelve una mano
+ * dentro de las clases no se deberia reordenar, deberia recibir las cartas ordenadas
  *
  */
 public class FactoriaMano 

@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.manos;
 
-import java.util.ArrayList;
+import java.util.List;
+import java.util.List;
 
 import com.poker.project.multimodule.base.Carta;
 
@@ -17,7 +18,7 @@ public abstract class Mano implements Comparable<Mano>
 	
 	
 	protected ManoEnum tipo;
-	protected ArrayList<Carta> cartas;
+	protected List<Carta> cartas;
 	
 	
 	
@@ -29,7 +30,7 @@ public abstract class Mano implements Comparable<Mano>
 	
 	
 	/// nuevo
-	public ArrayList<Carta> dameMano()
+	public List<Carta> dameMano()
 	{
 		return cartas;
 	}
