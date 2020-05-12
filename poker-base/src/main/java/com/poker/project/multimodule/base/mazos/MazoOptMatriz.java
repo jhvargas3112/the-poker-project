@@ -235,7 +235,7 @@ public class MazoOptMatriz implements MazoCartas
 			
 			System.exit(-1);
 		}
-		if(b)
+		if(!b)
 			return mazo[p][n];
 		else return null;
 	}
@@ -254,7 +254,7 @@ public class MazoOptMatriz implements MazoCartas
 		for (Carta carta : cartasConcretas) {
 			cartas.add(dameCartaConcreta(carta));
 		}
-		return null;
+		return cartas;
 	}
 
 
