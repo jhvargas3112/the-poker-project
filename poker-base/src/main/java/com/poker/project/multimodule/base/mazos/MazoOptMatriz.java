@@ -96,6 +96,9 @@ public class MazoOptMatriz implements MazoCartas
 	}
 	
 
+	/**
+	 * Coste cte
+	 */
 	@Override
 	public void insertaCarta(Carta c) 
 	{
@@ -111,8 +114,11 @@ public class MazoOptMatriz implements MazoCartas
 
 
 
+	/**
+	 * coste lineal
+	 */
 	@Override
-	public void insertaCarta(List<Carta> l) {
+	public void insertaCartas(List<Carta> l) {
 
 		for(Carta c: l)
 			insertaCarta(c);
@@ -153,7 +159,7 @@ public class MazoOptMatriz implements MazoCartas
 	 * @param c
 	 * @return
 	 */
-	public boolean estaCarta(Carta c)
+	public boolean perteneceCartaAMazo(Carta c)
 	{
 		return !estaSeleccionada(c);//mazo.contains(c);
 	}

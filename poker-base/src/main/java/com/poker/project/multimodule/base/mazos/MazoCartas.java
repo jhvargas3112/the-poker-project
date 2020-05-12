@@ -1,6 +1,5 @@
 package com.poker.project.multimodule.base.mazos;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.poker.project.multimodule.base.cartas.Carta;
@@ -52,29 +51,11 @@ public interface MazoCartas
 	 * @return
 	 */
 	
-	public void insertaCarta(List<Carta> l);
-	
-	
-	public void seleccionarCarta(Carta c );
-	/**
-	 * es usada
-	 * @param c
-	 * @return
-	 */
-	public boolean estaSeleccionada(Carta c);
-	
-	public boolean estaCarta(Carta c);
-	/*
-	public boolean quitarCarta(Carta c);
-	public boolean quitarNCarta(Carta c);
-	*/
+	public void insertaCartas(List<Carta> l);
 	
 	
 	
-	
-	
-	
-	
+	public boolean perteneceCartaAMazo(Carta c);
 	
 
 }

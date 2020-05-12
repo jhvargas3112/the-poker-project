@@ -26,7 +26,6 @@ public class MazoOptMatrizLista implements MazoCartas
 {
 	private Carta mazo[][];
 	private boolean seleccionada[][];
-	//private int cont;
 
 	List<Carta> cartasOrdenadas;
 	
@@ -40,7 +39,6 @@ public class MazoOptMatrizLista implements MazoCartas
 	{
 		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
-		//cont = NUM_PALOS*NUM_CARTAS;
 		cartasOrdenadas= new LinkedList<>();
 		for(Palo p : Palo.values())
 		{
@@ -132,7 +130,7 @@ public class MazoOptMatrizLista implements MazoCartas
 
 
 	@Override
-	public void insertaCarta(List<Carta> l) {
+	public void insertaCartas(List<Carta> l) {
 
 		for(Carta c: l)
 			insertaCarta(c);
@@ -173,7 +171,7 @@ public class MazoOptMatrizLista implements MazoCartas
 	 * @param c
 	 * @return
 	 */
-	public boolean estaCarta(Carta c)
+	public boolean perteneceCartaAMazo(Carta c)
 	{
 		return !estaSeleccionada(c);//mazo.contains(c);
 	}

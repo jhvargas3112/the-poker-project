@@ -1,8 +1,10 @@
 package com.poker.project.multimodule.base.mazos;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import com.poker.project.multimodule.base.cartas.Carta;
@@ -17,37 +19,42 @@ import com.poker.project.multimodule.base.cartas.Palo;
  * @author victor
  *
  */
-public class MazoOptListaEnlazada implements MazoCartas
+public class MazoOptListaMapa implements MazoCartas
 {
 	private LinkedList<Carta> mazo;
 	
-	private List<Carta> cartasUsadas;
+	
+	private Map<Carta,Boolean> estaUsada;
 	
 	Random r= new Random(System.currentTimeMillis());
 
 
 	
-	public MazoOptListaEnlazada()
+	public MazoOptListaMapa()
 	{
 		mazo = new LinkedList<>();
-		cartasUsadas = new LinkedList<>();
+		estaUsada=  new HashMap<>();
 		for(Palo p : Palo.values())
 		{
-			for(int i=1;i<14;i++)//cambiado
-				mazo.add(new Carta(i,p));
+			for(int i=1;i<14;i++)
+			{
+				Carta carta= new Carta(i,p);
+				mazo.add(carta);
+				estaUsada.put(carta, false);
+			}
 		}
 	
 	}
 	
 	
 	/**
-	 * 
+	 * Coste lineal 
 	 */
 	public Carta dameCartaAleatoria()
 	{
 		int n= r.nextInt(mazo.size());
 		Carta carta = mazo.remove(n);
-		cartasUsadas.add(carta);
+		estaUsada.put(carta,true);
 		return carta;
 		
 	}
@@ -68,17 +75,24 @@ public class MazoOptListaEnlazada implements MazoCartas
 
 
 
+	/**
+	 * coste cte
+	 */
 	@Override
 	public void insertaCarta(Carta c)
 	{
 		mazo.add(c);
+		estaUsada.put(c, false);
 		
 	}
 
 
 
+	/**
+	 * coste lineal
+	 */
 	@Override
-	public void insertaCarta(List<Carta> l)
+	public void insertaCartas(List<Carta> l)
 	{
 		for(Carta c: l)
 			insertaCarta(c);
@@ -94,51 +108,43 @@ public class MazoOptListaEnlazada implements MazoCartas
 	@Override
 	public Carta dameCartaConcreta(Carta cartaConcreta)
 	{
-		Palo palo = cartaConcreta.getPalo();
 		
-		int ord=palo.ordinal();
-		
-		
-		Carta pivote= mazo.get(ord*10);// coste lineal
-		
-		
-		Carta cartaBuscada= null;
+		mazo.remove(cartaConcreta);
+		estaUsada.put(cartaConcreta, false);
 		
 		
 		
-		return cartaBuscada;
+		
+		return cartaConcreta;
 	}
 
 
 
 	@Override
 	public List<Carta> dameNCartasConcretas(List<Carta> cartasConcretas) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-
-
-	@Override
-	public void seleccionarCarta(Carta c) {
-		// TODO Auto-generated method stub
+		List<Carta> cartas= new ArrayList<>();
+		for (Carta carta : cartasConcretas) {
+			cartas.add(dameCartaConcreta(carta));
+		}
 		
+		cartas.removeAll(cartasConcretas);
+		
+		
+		return cartas;
 	}
 
 
 
-	@Override
-	public boolean estaSeleccionada(Carta c) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+	
+	
 
 
 
 	@Override
-	public boolean estaCarta(Carta c) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean perteneceCartaAMazo(Carta c)
+	{
+		return mazo.contains(c);
 	}
 	
 	
