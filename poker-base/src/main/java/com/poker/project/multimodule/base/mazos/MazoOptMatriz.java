@@ -6,6 +6,7 @@ import java.util.Random;
 
 import com.poker.project.multimodule.base.cartas.Carta;
 import com.poker.project.multimodule.base.cartas.Palo;
+import com.poker.project.multimodule.base.mazos.exceptions.EmptyCardDeckException;
 
 /**
  * matriz de cartas 
@@ -23,7 +24,7 @@ public class MazoOptMatriz implements MazoCartas
 {
 	private Carta mazo[][];
 	private boolean seleccionada[][];
-	private int cont;
+	private int numCartasNoSeleccionadas;
 	
 	private static final  int NUM_PALOS=  Palo.values().length;
 	private static final  int NUM_CARTAS= 13;
@@ -32,7 +33,7 @@ public class MazoOptMatriz implements MazoCartas
 	{
 		mazo =  new Carta[NUM_PALOS][NUM_CARTAS];
 		seleccionada= new boolean[NUM_PALOS][NUM_CARTAS];
-		cont = NUM_PALOS*NUM_CARTAS;
+		numCartasNoSeleccionadas = NUM_PALOS*NUM_CARTAS;
 		for(Palo p : Palo.values())
 		{
 			for(int i=0;i<NUM_CARTAS;i++)//cambiado
@@ -50,7 +51,7 @@ public class MazoOptMatriz implements MazoCartas
 	 */
 	public Carta dameCartaAleatoria()
 	{
-		if(cont==0){
+		if(numCartasNoSeleccionadas==0){
 			return null;
 		}else{
 		
@@ -71,8 +72,13 @@ public class MazoOptMatriz implements MazoCartas
 				c = new Carta(nCarta+1,p);
 			}
 			
-			cont--;
-			seleccionarCarta(c);
+			numCartasNoSeleccionadas--;
+			
+			try {
+				seleccionarCarta(c);
+			} catch (EmptyCardDeckException e) {
+				e.printStackTrace();
+			}
 			return c;
 		}
 		
@@ -94,25 +100,19 @@ public class MazoOptMatriz implements MazoCartas
 		 
 		 return a;
 	}
-	
 
 	/**
-	 * Coste cte
+	 * Coste en tiempo O(1).
 	 */
 	@Override
-	public void insertaCarta(Carta c) 
-	{
-		int p = c.getPalo().ordinal();// Palo.values()[nPalo];
-		int n= c.getNum()-1;
-		if(n==NUM_CARTAS)n=0;
+	public void insertaCarta(Carta carta) {
+		int p = carta.getPaloOrdinal();
+		int n = carta.getNum();
 		
-		//si ya esta en el mazo, se inserta de nuevo, pero no repite
-		seleccionada[p][n]=true;
+		seleccionada[p][n] = false;
 		
+		numCartasNoSeleccionadas++;
 	}
-
-
-
 
 	/**
 	 * coste lineal
@@ -131,7 +131,7 @@ public class MazoOptMatriz implements MazoCartas
 	 */
 	public boolean estaVacio()
 	{
-		return cont==0;//mazo.isEmpty();
+		return numCartasNoSeleccionadas==0;//mazo.isEmpty();
 	}
 	
 	
@@ -141,109 +141,78 @@ public class MazoOptMatriz implements MazoCartas
 	 */
 	public int quedanNumCartas()
 	{
-		return cont;
+		return numCartasNoSeleccionadas;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	/**
-	 * Devuelve si la carta c , est� en el mazo
-	 * @param c
-	 * @return
+	 * Comprueba si una determinada carta está en el mazo.
+	 * 
+	 * @param Carta carta
+	 * @return boolean - true si la carta está en el mazo, false si no.
 	 */
-	public boolean perteneceCartaAMazo(Carta c)
-	{
-		return !estaSeleccionada(c);//mazo.contains(c);
+	public boolean perteneceCartaAMazo(Carta c) {
+		return !estaSeleccionada(c);
 	}
 	
-	
-	
-	
 	/**
-	 * Coste constante
+	 * Coste en tiempo O(1).
 	 */
-	public void seleccionarCarta(Carta c )
-	{
-		if(c==null) return ;
-		int n= c.getNum()-1;
-		if(n==13)n=1; // si es as
-		int p= c.getPalo().ordinal();
-		if(!estaSeleccionada(c))
-		{
-			seleccionada[p][n]=true;
-			cont--;
+	public void seleccionarCarta(Carta carta) throws EmptyCardDeckException {
+		if (estaVacio()) {
+			throw new EmptyCardDeckException("Card deck is empty.");
 		}
 		
+		if (carta == null) {
+			return;
+		}
+		
+		int numero = carta.getNum();
+		int paloOrdinal = carta.getPaloOrdinal();
+		
+		if (!estaSeleccionada(carta)) {
+			seleccionada[paloOrdinal][numero] = true;
+			numCartasNoSeleccionadas--;
+		}
 	}
 	
 	/**
-	 * Coste constante
+	 * Coste en tiempo O(1).
 	 */
-	public boolean estaSeleccionada(Carta c)
-	{
-		if(c==null) return false;
+	public boolean estaSeleccionada(Carta carta) {
+		int numero = carta.getNum();
+		int paloOrdinal = carta.getPaloOrdinal();
 		
+		boolean estaSeleccionada = this.seleccionada[paloOrdinal][numero];
 		
-		int n= c.getNum()-1;
-		if(n==13)n=1; // si es as
-		int p= c.getPalo().ordinal();
-		boolean b=false;
-		try
-		{
-			b= this.seleccionada[p][n];
-		}catch(Exception e)
-		{
-			System.err.println("mazo. esta seleccionada "+c + " "+ n +" "+ p );
-			
-			System.exit(-1);
-		}
-		return b;
+		return estaSeleccionada;
 	}
 
-
-
-
+	/**
+	 * Coste en tiempo O(1).
+	 */
 	@Override
-/**
- * Coste constante
- */
 	public Carta dameCartaConcreta(Carta cartaConcreta) {
-		if(cartaConcreta==null) 
+		if(cartaConcreta == null) {
 			return null;
+		}
 		
+		int numero = cartaConcreta.getNum();
+		int paloOrdinal = cartaConcreta.getPaloOrdinal();
 		
-		int n= cartaConcreta.getNum()-1;
-		if(n==13)n=1; // si es as
-		int p= cartaConcreta.getPalo().ordinal();
-		boolean b=false;
-		try
-		{
-			b= this.seleccionada[p][n];
+		boolean estaSeleccionada = false;
+		
+		try {
+			estaSeleccionada = this.seleccionada[paloOrdinal][numero];
 			
-			
-		}catch(Exception e)
-		{
-			System.err.println("mazo. esta seleccionada "+cartaConcreta + " "+ n +" "+ p );
+		} catch(Exception e) {
+			System.err.println("Mazo. Está seleccionada " + cartaConcreta + " " + numero + " " + paloOrdinal);
 			
 			System.exit(-1);
 		}
-		if(!b)
-			return mazo[p][n];
-		else return null;
+		
+		return !estaSeleccionada ? mazo[paloOrdinal][numero] : null;
 	}
 	
-
-
-
-
 	@Override
 	/**
 	 * Coste lineal
@@ -256,12 +225,12 @@ public class MazoOptMatriz implements MazoCartas
 		}
 		return cartas;
 	}
-
-
-
-
 	
-	
-	
-	
+	/**
+	 * Coste en tiempo O(1).
+	 */
+	public int getNumCartasNoSeleccionadas()
+	{
+		return numCartasNoSeleccionadas;
+	}
 }

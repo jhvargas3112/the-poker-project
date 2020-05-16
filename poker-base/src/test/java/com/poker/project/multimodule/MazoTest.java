@@ -1,7 +1,5 @@
 package com.poker.project.multimodule;
 
-import static org.junit.Assert.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,10 +11,14 @@ import com.poker.project.multimodule.base.cartas.Carta;
 import com.poker.project.multimodule.base.cartas.Palo;
 import com.poker.project.multimodule.base.mazos.MazoCartas;
 import com.poker.project.multimodule.base.mazos.MazoOptMatriz;
+import com.poker.project.multimodule.base.mazos.exceptions.EmptyCardDeckException;
 
 public class MazoTest 
 {
-	MazoCartas mazo;
+	private MazoCartas mazo;
+	
+	private static final  int NUM_PALOS = Palo.values().length;
+	private static final  int NUM_CARTAS = 13;
 	
 	@Before
 	public void setUp() 
@@ -99,5 +101,64 @@ public class MazoTest
 
 	}
 	
-
+	@Test
+	public void seleccionarCarta() {
+		Carta carta = new Carta(7, Palo.CORAZONES);
+		
+		int numCartasNoSeleccionadas = ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas();
+		
+		try {
+			((MazoOptMatriz) mazo).seleccionarCarta(carta);
+		} catch (EmptyCardDeckException e) {
+			e.printStackTrace();
+		}
+		
+		Assert.assertEquals(((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas(), numCartasNoSeleccionadas - 1);
+	}
+	
+	@Test(expected = EmptyCardDeckException.class)
+	public void seleccionarCartaMazoVacio() throws EmptyCardDeckException {
+		((MazoOptMatriz) mazo).dameNCartasAleatoria(NUM_PALOS * NUM_CARTAS);
+		
+		((MazoOptMatriz) mazo).seleccionarCarta(new Carta(7, Palo.CORAZONES));
+	}
+	
+	@Test
+	public void noPerteneceCartaAMazo() {
+		Carta carta = new Carta(7, Palo.CORAZONES);
+		
+		try {
+			((MazoOptMatriz) mazo).seleccionarCarta(carta);
+		} catch (EmptyCardDeckException e) {
+			e.printStackTrace();
+		}
+		
+		boolean pertenece = mazo.perteneceCartaAMazo(carta);
+		
+		Assert.assertFalse(pertenece);
+	}
+	
+	@Test
+	public void perteneceCartaAMazo() {
+		Carta carta = new Carta(7, Palo.CORAZONES);
+		
+		boolean pertenece = mazo.perteneceCartaAMazo(carta);
+		
+		Assert.assertTrue(pertenece);
+	}
+	
+	@Test
+	public void insertarCarta() {
+		mazo= new MazoOptMatriz();
+		
+		((MazoOptMatriz) mazo).dameNCartasAleatoria(8);
+		
+		int numCartasSinSeleccionar = ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas();
+		
+		Carta carta = new Carta(7, Palo.CORAZONES);
+		
+		mazo.insertaCarta(carta);
+		
+		Assert.assertEquals(numCartasSinSeleccionar + 1, ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas());
+	}
 }

@@ -19,7 +19,7 @@ public class Carta implements Comparable<Carta>
 	public Palo getPalo() 			{return palo;}
 	public void setPalo(Palo palo) 	{this.palo = palo;}
 
-	public int getNum() 			{return num;}
+	// public int getNum() 			{return num;}
 	public void setNum(int num)		{this.num = num;}
 
 
@@ -74,5 +74,11 @@ public class Carta implements Comparable<Carta>
 		}
 	}
 	
+	public int getNum() {
+		return num - 1 == 13 ? 1 : num - 1;
+	}
 	
+	public int getPaloOrdinal() {
+		return getPalo().ordinal();
+	}
 }
