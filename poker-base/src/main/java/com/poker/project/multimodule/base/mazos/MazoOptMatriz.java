@@ -6,7 +6,8 @@ import java.util.Random;
 
 import com.poker.project.multimodule.base.cartas.Carta;
 import com.poker.project.multimodule.base.cartas.Palo;
-import com.poker.project.multimodule.base.mazos.exceptions.EmptyCardDeckException;
+import com.poker.project.multimodule.base.mazos.exceptions.CardIsAlreadySelectedException;
+import com.poker.project.multimodule.base.mazos.exceptions.CardIsInTheDeckException;
 
 /**
  * matriz de cartas 
@@ -76,7 +77,7 @@ public class MazoOptMatriz implements MazoCartas
 			
 			try {
 				seleccionarCarta(c);
-			} catch (EmptyCardDeckException e) {
+			} catch (CardIsAlreadySelectedException e) {
 				e.printStackTrace();
 			}
 			return c;
@@ -105,23 +106,30 @@ public class MazoOptMatriz implements MazoCartas
 	 * Coste en tiempo O(1).
 	 */
 	@Override
-	public void insertaCarta(Carta carta) {
-		int p = carta.getPaloOrdinal();
-		int n = carta.getNum();
+	public void insertarCarta(Carta carta) throws CardIsInTheDeckException {
+		if (!estaSeleccionada(carta)) {
+			throw new CardIsInTheDeckException("This card is already in the deck.");
+		}
 		
-		seleccionada[p][n] = false;
+		int paloOrdinal = carta.getPaloOrdinal();
+		int numero = carta.getNum();
+		
+		seleccionada[paloOrdinal][numero] = false;
 		
 		numCartasNoSeleccionadas++;
 	}
 
 	/**
-	 * coste lineal
+	 * Coste en tiempo O(n).
 	 */
 	@Override
-	public void insertaCartas(List<Carta> l) {
-
-		for(Carta c: l)
-			insertaCarta(c);
+	public void insertarCartas(List<Carta> cartas) {
+		for(Carta carta: cartas)
+			try {
+				insertarCarta(carta);
+			} catch (CardIsInTheDeckException e) {
+				e.printStackTrace();
+			}
 	}
 	
 	/**
@@ -145,23 +153,9 @@ public class MazoOptMatriz implements MazoCartas
 	}
 	
 	/**
-	 * Comprueba si una determinada carta está en el mazo.
-	 * 
-	 * @param Carta carta
-	 * @return boolean - true si la carta está en el mazo, false si no.
-	 */
-	public boolean perteneceCartaAMazo(Carta c) {
-		return !estaSeleccionada(c);
-	}
-	
-	/**
 	 * Coste en tiempo O(1).
 	 */
-	public void seleccionarCarta(Carta carta) throws EmptyCardDeckException {
-		if (estaVacio()) {
-			throw new EmptyCardDeckException("Card deck is empty.");
-		}
-		
+	public void seleccionarCarta(Carta carta) throws CardIsAlreadySelectedException {
 		if (carta == null) {
 			return;
 		}
@@ -172,6 +166,8 @@ public class MazoOptMatriz implements MazoCartas
 		if (!estaSeleccionada(carta)) {
 			seleccionada[paloOrdinal][numero] = true;
 			numCartasNoSeleccionadas--;
+		} else {
+			throw new CardIsAlreadySelectedException("This card is already selected.");
 		}
 	}
 	
@@ -196,21 +192,17 @@ public class MazoOptMatriz implements MazoCartas
 			return null;
 		}
 		
-		int numero = cartaConcreta.getNum();
-		int paloOrdinal = cartaConcreta.getPaloOrdinal();
-		
-		boolean estaSeleccionada = false;
-		
-		try {
-			estaSeleccionada = this.seleccionada[paloOrdinal][numero];
-			
-		} catch(Exception e) {
-			System.err.println("Mazo. Está seleccionada " + cartaConcreta + " " + numero + " " + paloOrdinal);
-			
-			System.exit(-1);
+		if (estaSeleccionada(cartaConcreta)) {
+			cartaConcreta = null;
+		} else {
+			try {
+				seleccionarCarta(cartaConcreta);
+			} catch (CardIsAlreadySelectedException e) {
+				e.printStackTrace();
+			}
 		}
 		
-		return !estaSeleccionada ? mazo[paloOrdinal][numero] : null;
+		return cartaConcreta;
 	}
 	
 	@Override

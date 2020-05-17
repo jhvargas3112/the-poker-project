@@ -115,7 +115,7 @@ public class MazoOptMatrizLista implements MazoCartas
 	
 
 	@Override
-	public void insertaCarta(Carta c) 
+	public void insertarCarta(Carta c) 
 	{
 		int p = c.getPalo().ordinal();// Palo.values()[nPalo];
 		int n= c.getNum()-1;
@@ -130,10 +130,10 @@ public class MazoOptMatrizLista implements MazoCartas
 
 
 	@Override
-	public void insertaCartas(List<Carta> l) {
+	public void insertarCartas(List<Carta> l) {
 
 		for(Carta c: l)
-			insertaCarta(c);
+			insertarCarta(c);
 	}
 	
 	/**

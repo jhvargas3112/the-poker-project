@@ -79,7 +79,7 @@ public class MazoOptListaMapa implements MazoCartas
 	 * coste cte
 	 */
 	@Override
-	public void insertaCarta(Carta c)
+	public void insertarCarta(Carta c)
 	{
 		mazo.add(c);
 		estaUsada.put(c, false);
@@ -92,10 +92,10 @@ public class MazoOptListaMapa implements MazoCartas
 	 * coste lineal
 	 */
 	@Override
-	public void insertaCartas(List<Carta> l)
+	public void insertarCartas(List<Carta> l)
 	{
 		for(Carta c: l)
-			insertaCarta(c);
+			insertarCarta(c);
 		
 	}
 
@@ -134,19 +134,9 @@ public class MazoOptListaMapa implements MazoCartas
 		return cartas;
 	}
 
-
-
-	
-	
-
-
-
 	@Override
-	public boolean perteneceCartaAMazo(Carta c)
-	{
-		return mazo.contains(c);
+	public boolean estaSeleccionada(Carta carta) {
+		// TODO Auto-generated method stub
+		return false;
 	}
-	
-	
-	
 }

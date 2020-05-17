@@ -71,7 +71,7 @@ public class MazoOptListaEnlazadaOrdenada implements MazoCartas
 
 
 	@Override
-	public void insertaCarta(Carta c)
+	public void insertarCarta(Carta c)
 	{
 		mazo.add(c);
 		
@@ -80,7 +80,7 @@ public class MazoOptListaEnlazadaOrdenada implements MazoCartas
 
 
 	@Override
-	public void insertaCartas(List<Carta> l)
+	public void insertarCartas(List<Carta> l)
 	{
 		mazo.addAll(l);
 		/*
@@ -137,19 +137,9 @@ public class MazoOptListaEnlazadaOrdenada implements MazoCartas
 
 	}
 
-
-
-	
-	
-
-
-
 	@Override
-	public boolean perteneceCartaAMazo(Carta c) {
+	public boolean estaSeleccionada(Carta carta) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	
-	
 }

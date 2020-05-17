@@ -11,7 +11,8 @@ import com.poker.project.multimodule.base.cartas.Carta;
 import com.poker.project.multimodule.base.cartas.Palo;
 import com.poker.project.multimodule.base.mazos.MazoCartas;
 import com.poker.project.multimodule.base.mazos.MazoOptMatriz;
-import com.poker.project.multimodule.base.mazos.exceptions.EmptyCardDeckException;
+import com.poker.project.multimodule.base.mazos.exceptions.CardIsAlreadySelectedException;
+import com.poker.project.multimodule.base.mazos.exceptions.CardIsInTheDeckException;
 
 public class MazoTest 
 {
@@ -20,10 +21,19 @@ public class MazoTest
 	private static final  int NUM_PALOS = Palo.values().length;
 	private static final  int NUM_CARTAS = 13;
 	
+	private ArrayList<Carta> cartas;
+	
 	@Before
 	public void setUp() 
 	{
 		mazo= new MazoOptMatriz();
+		
+		cartas = new ArrayList<>();
+		
+		cartas.add(new Carta(7, Palo.CORAZONES));
+		cartas.add(new Carta(3, Palo.PICAS));
+		cartas.add(new Carta(5, Palo.DIAMANTES));
+		cartas.add(new Carta(8, Palo.TREBOLES));
 	}
 	
 	
@@ -40,7 +50,7 @@ public class MazoTest
 	
 	
 	@Test
-	public void testDameNCartaAleatoria() throws Exception 
+	public void testDameNCartaAleatoria() throws Exception // FIXME: mejorar este test, creo que no el método dameNCartasAleatoria no funciona bien si se piden que te de 52 cartas aleatorias.
 	{
 		int n=2;
 		List<Carta> cartas = mazo.dameNCartasAleatoria(n);
@@ -48,14 +58,15 @@ public class MazoTest
 		Assert.assertNotNull(cartas);
 		
 		Assert.assertTrue(!cartas.isEmpty());
-
-	
 		
+		n = NUM_PALOS * NUM_CARTAS;
+				
+		Assert.assertTrue(((MazoOptMatriz)mazo).estaVacio());
 	}
 	
 	
 	@Test
-	public void testDameCartaConcreta() throws Exception 
+	public void testDameCartaConcreta() 
 	{
 		Carta cartaConcreta= new Carta(2,Palo.CORAZONES);
 		Carta carta=mazo.dameCartaConcreta(cartaConcreta);
@@ -109,15 +120,15 @@ public class MazoTest
 		
 		try {
 			((MazoOptMatriz) mazo).seleccionarCarta(carta);
-		} catch (EmptyCardDeckException e) {
+		} catch (CardIsAlreadySelectedException e) {
 			e.printStackTrace();
 		}
 		
 		Assert.assertEquals(((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas(), numCartasNoSeleccionadas - 1);
 	}
 	
-	@Test(expected = EmptyCardDeckException.class)
-	public void seleccionarCartaMazoVacio() throws EmptyCardDeckException {
+	@Test(expected = CardIsAlreadySelectedException.class)
+	public void seleccionarCartaMazoVacio() throws CardIsAlreadySelectedException {
 		((MazoOptMatriz) mazo).dameNCartasAleatoria(NUM_PALOS * NUM_CARTAS);
 		
 		((MazoOptMatriz) mazo).seleccionarCarta(new Carta(7, Palo.CORAZONES));
@@ -129,11 +140,11 @@ public class MazoTest
 		
 		try {
 			((MazoOptMatriz) mazo).seleccionarCarta(carta);
-		} catch (EmptyCardDeckException e) {
+		} catch (CardIsAlreadySelectedException e) {
 			e.printStackTrace();
 		}
 		
-		boolean pertenece = mazo.perteneceCartaAMazo(carta);
+		boolean pertenece = !mazo.estaSeleccionada(carta);
 		
 		Assert.assertFalse(pertenece);
 	}
@@ -142,23 +153,39 @@ public class MazoTest
 	public void perteneceCartaAMazo() {
 		Carta carta = new Carta(7, Palo.CORAZONES);
 		
-		boolean pertenece = mazo.perteneceCartaAMazo(carta);
+		boolean pertenece = !mazo.estaSeleccionada(carta);
 		
 		Assert.assertTrue(pertenece);
 	}
 	
 	@Test
-	public void insertarCarta() {
-		mazo= new MazoOptMatriz();
-		
-		((MazoOptMatriz) mazo).dameNCartasAleatoria(8);
+	public void insertarCarta() throws CardIsInTheDeckException {
+		((MazoOptMatriz) mazo).dameNCartasConcretas(cartas);
 		
 		int numCartasSinSeleccionar = ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas();
 		
 		Carta carta = new Carta(7, Palo.CORAZONES);
 		
-		mazo.insertaCarta(carta);
+		mazo.insertarCarta(carta);
 		
 		Assert.assertEquals(numCartasSinSeleccionar + 1, ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas());
+	}
+	
+	@Test
+	public void insertarNCartas() throws CardIsInTheDeckException {
+		((MazoOptMatriz) mazo).dameNCartasConcretas(cartas);
+		
+		int numCartasSinSeleccionar = ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas();
+		
+		mazo.insertarCartas(cartas);
+		
+		Assert.assertEquals(numCartasSinSeleccionar + 4, ((MazoOptMatriz) mazo).getNumCartasNoSeleccionadas());
+	}
+	
+	@Test(expected = CardIsInTheDeckException.class)
+	public void insertarCartaRepetida() throws CardIsInTheDeckException {
+		Carta carta = new Carta(7, Palo.CORAZONES);
+		
+		mazo.insertarCarta(carta);
 	}
 }
