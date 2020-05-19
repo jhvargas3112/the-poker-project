@@ -59,7 +59,7 @@ public class MazoOptListaEnlazadaDesOrdenada implements MazoCartas
 
 
 	@Override
-	public List<Carta> dameNCartasAleatoria(int n) 
+	public List<Carta> dameNCartasAleatorias(int n) 
 	{
 		
 		 ArrayList<Carta> a = new  ArrayList<>();
@@ -141,8 +141,22 @@ public class MazoOptListaEnlazadaDesOrdenada implements MazoCartas
 
 
 	@Override
-	public boolean estaSeleccionada(Carta carta) {
+	public boolean perteneceCartaAMazo(Carta carta) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+  @Override
+  public boolean estaVacio() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+
+  @Override
+  public int getNumCartasNoSeleccionadas() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 }

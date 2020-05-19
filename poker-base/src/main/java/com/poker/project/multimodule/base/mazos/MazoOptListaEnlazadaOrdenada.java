@@ -3,9 +3,7 @@ package com.poker.project.multimodule.base.mazos;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
-
 import com.poker.project.multimodule.base.cartas.Carta;
 import com.poker.project.multimodule.base.cartas.Palo;
 
@@ -57,7 +55,7 @@ public class MazoOptListaEnlazadaOrdenada implements MazoCartas
 
 
 	@Override
-	public List<Carta> dameNCartasAleatoria(int n) 
+	public List<Carta> dameNCartasAleatorias(int n) 
 	{
 		
 		 ArrayList<Carta> a = new  ArrayList<>();
@@ -138,8 +136,22 @@ public class MazoOptListaEnlazadaOrdenada implements MazoCartas
 	}
 
 	@Override
-	public boolean estaSeleccionada(Carta carta) {
+	public boolean perteneceCartaAMazo(Carta carta) {
 		// TODO Auto-generated method stub
 		return false;
 	}
+
+
+  @Override
+  public boolean estaVacio() {
+    // TODO Auto-generated method stub
+    return false;
+  }
+
+
+  @Override
+  public int getNumCartasNoSeleccionadas() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 }

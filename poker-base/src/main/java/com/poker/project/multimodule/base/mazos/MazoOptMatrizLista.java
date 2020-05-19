@@ -103,7 +103,7 @@ public class MazoOptMatrizLista implements MazoCartas
 	 * Extrae n cartas del mazo
 	 * @return cartas aleatorias
 	 */
-	public List<Carta> dameNCartasAleatoria(int n)
+	public List<Carta> dameNCartasAleatorias(int n)
 	{
 		 ArrayList<Carta> a = new  ArrayList<>();
 		 for(int i=0;i<n;i++)
@@ -156,29 +156,6 @@ public class MazoOptMatrizLista implements MazoCartas
 		return cartasOrdenadas.size();
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	/**
-	 * Devuelve si la carta c , est� en el mazo
-	 * @param c
-	 * @return
-	 */
-	public boolean perteneceCartaAMazo(Carta c)
-	{
-		return !estaSeleccionada(c);//mazo.contains(c);
-	}
-	
-	
-	
-	
 	/**
 	 * Coste constante
 	 */
@@ -188,7 +165,7 @@ public class MazoOptMatrizLista implements MazoCartas
 		int n= c.getNum()-1;
 		if(n==13)n=1; // si es as
 		int p= c.getPalo().ordinal();
-		if(!estaSeleccionada(c))
+		if(!perteneceCartaAMazo(c))
 		{
 			seleccionada[p][n]=true;
 			cartasOrdenadas.remove(c);
@@ -199,7 +176,7 @@ public class MazoOptMatrizLista implements MazoCartas
 	/**
 	 * Coste constante
 	 */
-	public boolean estaSeleccionada(Carta c)
+	public boolean perteneceCartaAMazo(Carta c)
 	{
 		if(c==null) return false;
 		
@@ -273,6 +250,15 @@ public class MazoOptMatrizLista implements MazoCartas
 		}
 		return null;
 	}
+
+
+
+
+  @Override
+  public int getNumCartasNoSeleccionadas() {
+    // TODO Auto-generated method stub
+    return 0;
+  }
 
 
 
