@@ -2,7 +2,6 @@ package com.poker.project.multimodule.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import com.poker.project.multimodule.base.*;
 
 @SpringBootApplication
 public class ApiApplication {

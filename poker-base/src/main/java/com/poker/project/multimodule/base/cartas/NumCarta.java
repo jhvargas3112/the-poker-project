@@ -1,4 +1,4 @@
-package com.poker.project.multimodule.base;
+package com.poker.project.multimodule.base.cartas;
 
 /**
  * Transforma el numero de la carta en el nombre 

@@ -1,0 +1,9 @@
+para acceder a una carta concreta, es mejor el mazo de matriz MazoOptMatriz
+
+al acceder de manera aleatoria, es mejor la lista
+
+al insertar cartas, el coste es constante en ambos
+
+al insertar varias cartas, el coste es lineal wn ambos
+
+al comprobar si una carta pertenece al mazo, es mejor el mazoOptMatriz
