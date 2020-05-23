@@ -20,6 +20,10 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaPareja())==0);
 	}
 	@Test
+	public void testParejaVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaDoblesParejasBajas())==-1);
+	}
+	@Test
 	public void testParejaVSDoblesParejas(){
 		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaDoblesParejas())==-1);
 	}
@@ -48,20 +52,64 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testParejaVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testParejaVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaDoblesParejasBajas())==-1);
-	}
-	@Test
 	public void testParejaVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testParejaVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaPareja().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSPareja(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaDoblesParejasBajas())==0);
+	}
+	@Test
+	public void testDoblesParejasBajasVSDoblesParejas(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaDoblesParejas())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSTrio(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaTrio())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSEscaleraBaja(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscaleraBaja())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSEscalera(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscalera())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSColorBaja(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaColorBaja())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSColor(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaColor())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSPoker(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaPoker())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSEscaleraColorBaja(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscaleraColorBaja())==-1);
+	}
+	@Test
+	public void testDoblesParejasBajasVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testDoblesParejasVSPareja(){
 		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testDoblesParejasVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testDoblesParejasVSDoblesParejas(){
@@ -92,20 +140,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testDoblesParejasVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testDoblesParejasVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaDoblesParejasBajas())==-1);
-	}
-	@Test
 	public void testDoblesParejasVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testDoblesParejasVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaDoblesParejas().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testTrioVSPareja(){
 		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testTrioVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testTrioVSDoblesParejas(){
@@ -136,20 +184,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testTrioVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testTrioVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaDoblesParejasBajas())==1);
-	}
-	@Test
 	public void testTrioVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testTrioVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaTrio().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testEscaleraBajaVSPareja(){
 		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testEscaleraBajaVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testEscaleraBajaVSDoblesParejas(){
@@ -180,20 +228,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testEscaleraBajaVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testEscaleraBajaVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaDoblesParejasBajas())==1);
-	}
-	@Test
 	public void testEscaleraBajaVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testEscaleraBajaVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaEscaleraBaja().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testEscaleraVSPareja(){
 		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testEscaleraVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testEscaleraVSDoblesParejas(){
@@ -224,20 +272,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testEscaleraVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testEscaleraVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaDoblesParejasBajas())==1);
-	}
-	@Test
 	public void testEscaleraVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testEscaleraVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaEscalera().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testColorBajaVSPareja(){
 		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testColorBajaVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testColorBajaVSDoblesParejas(){
@@ -268,20 +316,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testColorBajaVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testColorBajaVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaDoblesParejasBajas())==-1);
-	}
-	@Test
 	public void testColorBajaVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testColorBajaVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaColorBaja().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testColorVSPareja(){
 		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testColorVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testColorVSDoblesParejas(){
@@ -312,20 +360,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaPoker())==-1);
 	}
 	@Test
-	public void testColorVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testColorVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaDoblesParejasBajas())==1);
-	}
-	@Test
 	public void testColorVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
+	public void testColorVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaColor().compareTo(factManos.creaEscaleraColor())==-1);
+	}
+	@Test
 	public void testPokerVSPareja(){
 		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testPokerVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testPokerVSDoblesParejas(){
@@ -356,108 +404,20 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaPoker())==0);
 	}
 	@Test
-	public void testPokerVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaEscaleraColor())==-1);
-	}
-	@Test
-	public void testPokerVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaDoblesParejasBajas())==1);
-	}
-	@Test
 	public void testPokerVSEscaleraColorBaja(){
 		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaEscaleraColorBaja())==-1);
 	}
 	@Test
-	public void testEscaleraColorVSPareja(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaPareja())==1);
-	}
-	@Test
-	public void testEscaleraColorVSDoblesParejas(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaDoblesParejas())==1);
-	}
-	@Test
-	public void testEscaleraColorVSTrio(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaTrio())==1);
-	}
-	@Test
-	public void testEscaleraColorVSEscaleraBaja(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscaleraBaja())==1);
-	}
-	@Test
-	public void testEscaleraColorVSEscalera(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscalera())==1);
-	}
-	@Test
-	public void testEscaleraColorVSColorBaja(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaColorBaja())==1);
-	}
-	@Test
-	public void testEscaleraColorVSColor(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaColor())==1);
-	}
-	@Test
-	public void testEscaleraColorVSPoker(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaPoker())==1);
-	}
-	@Test
-	public void testEscaleraColorVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscaleraColor())==0);
-	}
-	@Test
-	public void testEscaleraColorVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaDoblesParejasBajas())==1);
-	}
-	@Test
-	public void testEscaleraColorVSEscaleraColorBaja(){
-		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscaleraColorBaja())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSPareja(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaPareja())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSDoblesParejas(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaDoblesParejas())==-1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSTrio(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaTrio())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSEscaleraBaja(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscaleraBaja())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSEscalera(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscalera())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSColorBaja(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaColorBaja())==-1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSColor(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaColor())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSPoker(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaPoker())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSEscaleraColor(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscaleraColor())==1);
-	}
-	@Test
-	public void testDoblesParejasBajasVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaDoblesParejasBajas())==0);
-	}
-	@Test
-	public void testDoblesParejasBajasVSEscaleraColorBaja(){
-		Assert.assertTrue(factManos.creaDoblesParejasBajas().compareTo(factManos.creaEscaleraColorBaja())==-1);
+	public void testPokerVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaPoker().compareTo(factManos.creaEscaleraColor())==-1);
 	}
 	@Test
 	public void testEscaleraColorBajaVSPareja(){
 		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaPareja())==1);
+	}
+	@Test
+	public void testEscaleraColorBajaVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaDoblesParejasBajas())==1);
 	}
 	@Test
 	public void testEscaleraColorBajaVSDoblesParejas(){
@@ -488,16 +448,56 @@ public class ManosTest
 		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaPoker())==1);
 	}
 	@Test
+	public void testEscaleraColorBajaVSEscaleraColorBaja(){
+		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaEscaleraColorBaja())==0);
+	}
+	@Test
 	public void testEscaleraColorBajaVSEscaleraColor(){
 		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaEscaleraColor())==-1);
 	}
 	@Test
-	public void testEscaleraColorBajaVSDoblesParejasBajas(){
-		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaDoblesParejasBajas())==1);
+	public void testEscaleraColorVSPareja(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaPareja())==1);
 	}
 	@Test
-	public void testEscaleraColorBajaVSEscaleraColorBaja(){
-		Assert.assertTrue(factManos.creaEscaleraColorBaja().compareTo(factManos.creaEscaleraColorBaja())==0);
+	public void testEscaleraColorVSDoblesParejasBajas(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaDoblesParejasBajas())==1);
+	}
+	@Test
+	public void testEscaleraColorVSDoblesParejas(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaDoblesParejas())==1);
+	}
+	@Test
+	public void testEscaleraColorVSTrio(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaTrio())==1);
+	}
+	@Test
+	public void testEscaleraColorVSEscaleraBaja(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscaleraBaja())==1);
+	}
+	@Test
+	public void testEscaleraColorVSEscalera(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscalera())==1);
+	}
+	@Test
+	public void testEscaleraColorVSColorBaja(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaColorBaja())==1);
+	}
+	@Test
+	public void testEscaleraColorVSColor(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaColor())==1);
+	}
+	@Test
+	public void testEscaleraColorVSPoker(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaPoker())==1);
+	}
+	@Test
+	public void testEscaleraColorVSEscaleraColorBaja(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscaleraColorBaja())==1);
+	}
+	@Test
+	public void testEscaleraColorVSEscaleraColor(){
+		Assert.assertTrue(factManos.creaEscaleraColor().compareTo(factManos.creaEscaleraColor())==0);
 	}
 
 }
