@@ -6,6 +6,7 @@ import com.poker.project.multimodule.base.manos.Escalera;
 import com.poker.project.multimodule.base.manos.EscaleraColor;
 import com.poker.project.multimodule.base.manos.ManoEnum;
 import com.poker.project.multimodule.base.manos.Pareja;
+import com.poker.project.multimodule.base.manos.Poker;
 import com.poker.project.multimodule.base.manos.Trio;
 import com.poker.project.multimodule.base.manos.fact.FactoriaMano;
 
@@ -53,6 +54,12 @@ public class FactTestManosCreadas
 	{
 		return (Color) factManos.creaMano(factTestManos.creaColorBajo(), ManoEnum.flush);
 	}
+	
+	public Poker creaPoker()
+	{
+		return (Poker) factManos.creaMano(factTestManos.creaPoker(), ManoEnum.four_of_a_kind);
+	}
+	
 	
 	public EscaleraColor creaEscaleraColor()
 	{
