@@ -22,7 +22,7 @@ public class Trio extends Mano
 			
 				
 				tipo=ManoEnum.three_of_a_kind;
-				ArrayList<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
+				List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 				this.cartas=manoOrd;
 				
 				

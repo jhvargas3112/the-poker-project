@@ -23,7 +23,7 @@ public class Pareja extends Mano
 		
 			
 			tipo=ManoEnum.pair;
-			ArrayList<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
+			List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 			this.cartas=manoOrd;
 			
 		

@@ -20,7 +20,7 @@ public class CartaMasAlta extends Mano implements Comparable<Mano> {
 	{
 
 		tipo = ManoEnum.high_card;
-		ArrayList<Carta> manoOrd = (new OrdenarCartas()).ordenarPorNumero(mano);
+		List<Carta> manoOrd = (new OrdenarCartas()).ordenarPorNumero(mano);
 		cartas = manoOrd;
 
 	}

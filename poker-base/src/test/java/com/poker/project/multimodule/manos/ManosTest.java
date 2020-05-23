@@ -21,31 +21,5 @@ public class ManosTest
 		
 	}
 	
-	@Test
-	public void testColor() throws Exception {
-		
-	}
 	
-	@Test
-	public void testColor() throws Exception {
-		
-	}
-	@Test
-	public void testColor() throws Exception {
-		
-	}
-	@Test
-	public void testColor() throws Exception {
-		
-	}
-	@Test
-	public void testColor() throws Exception {
-		
-	}
-	
-	@Test
-	public void testColor() throws Exception {
-		
-	}
-
 }

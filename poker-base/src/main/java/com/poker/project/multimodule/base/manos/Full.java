@@ -21,7 +21,7 @@ public class Full extends Mano
 		
 			
 			tipo=ManoEnum.full_house;
-			ArrayList<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
+			List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 			this.cartas=manoOrd;
 			
 		

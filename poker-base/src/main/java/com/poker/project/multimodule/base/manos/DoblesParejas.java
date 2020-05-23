@@ -23,7 +23,7 @@ public class DoblesParejas extends Mano
 	{
 		
 		tipo=ManoEnum.two_pair;
-		ArrayList<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
+		List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 		parejaMayor= manoOrd.get(0);
 		parejaMenor= manoOrd.get(2);
 		desparejada= manoOrd.get(4);
