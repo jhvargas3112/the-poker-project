@@ -44,7 +44,7 @@ public class Escalera extends Mano //implements Comparable<Escalera>
 	public int compareTo(Mano m2) {
 		
 		int retorno= super.compareTo(m2);
-		if(retorno==0)
+		if(retorno!=0)
 			return retorno;
 		//retorno= Integer.compare(cartaMasAlta, ((Escalera)m2).cartaMasAlta);
 		retorno= cartaMasAlta.compareTo(((Escalera)m2).cartaMasAlta);

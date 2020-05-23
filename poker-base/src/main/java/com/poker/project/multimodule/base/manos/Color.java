@@ -31,6 +31,11 @@ public class Color extends CartaMasAlta {
 	}
 	
 	
+	
+	
+	
+	
+	
 
 	public String toString()
 	{

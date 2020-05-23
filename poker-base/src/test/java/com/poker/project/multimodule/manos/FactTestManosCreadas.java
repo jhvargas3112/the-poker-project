@@ -20,24 +20,20 @@ public class FactTestManosCreadas
 		return (Pareja) factManos.creaMano(factTestManos.creaPareja(), ManoEnum.pair);
 	}
 	
-	public DoblesParejas creaDoblesParejas()
-	{
-		return (DoblesParejas) factManos.creaMano(factTestManos.creaDoblesPareja(), ManoEnum.two_pair);
-	}
-	
 	public DoblesParejas creaDoblesParejasBajas()
 	{
 		return (DoblesParejas) factManos.creaMano(factTestManos.creaDoblesParejaBajas(), ManoEnum.two_pair);
 	}
 	
+	public DoblesParejas creaDoblesParejas()
+	{
+		return (DoblesParejas) factManos.creaMano(factTestManos.creaDoblesPareja(), ManoEnum.two_pair);
+	}	
+	
+	
 	public Trio creaTrio()
 	{
 		return (Trio) factManos.creaMano(factTestManos.creaTrio(), ManoEnum.three_of_a_kind);
-	}
-	
-	public Escalera creaEscalera()
-	{
-		return (Escalera) factManos.creaMano(factTestManos.creaEscalera(), ManoEnum.straight);
 	}
 	
 	public Escalera creaEscaleraBaja()
@@ -45,9 +41,9 @@ public class FactTestManosCreadas
 		return (Escalera) factManos.creaMano(factTestManos.creaEscaleraBaja(), ManoEnum.straight);
 	}
 	
-	public Color creaColor()
+	public Escalera creaEscalera()
 	{
-		return (Color) factManos.creaMano(factTestManos.creaColor(), ManoEnum.flush);
+		return (Escalera) factManos.creaMano(factTestManos.creaEscalera(), ManoEnum.straight);
 	}
 	
 	public Color creaColorBaja()
@@ -55,15 +51,16 @@ public class FactTestManosCreadas
 		return (Color) factManos.creaMano(factTestManos.creaColorBajo(), ManoEnum.flush);
 	}
 	
-	public Poker creaPoker()
+	public Color creaColor()
 	{
-		return (Poker) factManos.creaMano(factTestManos.creaPoker(), ManoEnum.four_of_a_kind);
+		return (Color) factManos.creaMano(factTestManos.creaColor(), ManoEnum.flush);
 	}
 	
 	
-	public EscaleraColor creaEscaleraColor()
+	
+	public Poker creaPoker()
 	{
-		return (EscaleraColor) factManos.creaMano(factTestManos.creaEscaleraColor(), ManoEnum.straight_flush);
+		return (Poker) factManos.creaMano(factTestManos.creaPoker(), ManoEnum.four_of_a_kind);
 	}
 	
 	public EscaleraColor creaEscaleraColorBaja()
@@ -71,5 +68,12 @@ public class FactTestManosCreadas
 		return (EscaleraColor) factManos.creaMano(factTestManos.creaEscaleraColorBaja(), ManoEnum.straight_flush);
 	}
 
+	
+	public EscaleraColor creaEscaleraColor()
+	{
+		return (EscaleraColor) factManos.creaMano(factTestManos.creaEscaleraColor(), ManoEnum.straight_flush);
+	}
+	
+	
 
 }
