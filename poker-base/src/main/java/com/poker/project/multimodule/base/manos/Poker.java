@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.manos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.poker.project.multimodule.base.Carta;
 import com.poker.project.multimodule.base.constantes.ConstantesPR1;
@@ -18,7 +19,7 @@ extends Mano{
 	
 	
 	
-		public Poker(ArrayList<Carta> mano )
+		public Poker(List<Carta> mano )
 		{
 			
 				
@@ -38,7 +39,7 @@ extends Mano{
 	
 	public String toString()
 	{
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(ConstantesPR1.POKER);
 		sb.append(" of ");
 		sb.append(kind);

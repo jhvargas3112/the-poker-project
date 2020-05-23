@@ -2,6 +2,7 @@ package com.poker.project.multimodule.base.util.ordenar;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.TreeSet;
 
 import com.poker.project.multimodule.base.Carta;
@@ -18,36 +19,36 @@ public class OrdenarCartas
 {
 	/**
 	 * Ordena de mayor a menor
-	 * @param l
+	 * @param mano
 	 * @return
 	 */
-	public ArrayList<Carta> ordenarPorNumero( ArrayList<Carta> l)
+	public List<Carta> ordenarPorNumero( List<Carta> mano)
 	{
-		ArrayList<Carta> a = new ArrayList<Carta>();
-		a.add(l.get(0));
+		ArrayList<Carta> a = new ArrayList<>();
+		a.add(mano.get(0));
 		
 		
-		for(int j=1;j<l.size();j++)
+		for(int j=1;j<mano.size();j++)
 		{
-			Carta elem = l.get(j);
+			Carta elem = mano.get(j);
 			int i=0;
 			while(i < a.size() && elem.compareTo(a.get(i))<0)
 			{
 				i++;
 			}
 			a.add(i,elem);
-			i=0;
+			//i=0;
 			
 		}
 		return a;
 	}
 	
 	
-	public ArrayList<Carta> ordenarPorNumeroAscendente( ArrayList<Carta> l)
+	public List<Carta> ordenarPorNumeroAscendente( List<Carta> l)
 	{
-		TreeSet<Carta> ts= new TreeSet<Carta>();
+		TreeSet<Carta> ts= new TreeSet<>();
 		ts.addAll(l);
-		ArrayList<Carta> r = new ArrayList<Carta>();
+		ArrayList<Carta> r = new ArrayList<>();
 		r.addAll(ts); 
 		return r;
 	}
@@ -57,9 +58,9 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public ArrayList<Carta> ordenarPorColor( ArrayList<Carta> l)
+	public List<Carta> ordenarPorColor( List<Carta> l)
 	{
-		ArrayList<Carta> a = new ArrayList<Carta>();
+		ArrayList<Carta> a = new ArrayList<>();
 		a.add(l.get(0));
 		
 		
@@ -84,10 +85,10 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public ArrayList<Carta> ordenarPorEscalera( ArrayList<Carta> l)
+	public List<Carta> ordenarPorEscalera( List<Carta> l)
 	{
-		ArrayList<Carta> a = ordenarPorNumero(l);
-		ArrayList<Carta> r = new ArrayList<Carta>();
+		List<Carta> a = ordenarPorNumero(l);
+		ArrayList<Carta> r = new ArrayList<>();
 		 
 		
 		for(int i=0;i<a.size()-1;i++)
@@ -115,7 +116,7 @@ public class OrdenarCartas
 					}
 					else if(r.size()<3)// si no tengo escalera de 3 cartas, empiezo con una nueva 
 					{
-						r = new ArrayList<Carta>();
+						r = new ArrayList<>();
 						r.add(e1);
 						r.add(e2);
 					}
@@ -134,16 +135,16 @@ public class OrdenarCartas
 		return r;
 	}
 	
-	public ArrayList<Carta> ordenarPorIguales( ArrayList<Carta> l)
+	public List<Carta> ordenarPorIguales( List<Carta> l)
 	{
 		return ordenarPorIguales2(l);
 	}
 	
-	public ArrayList<Carta> ordenarPorIguales1( ArrayList<Carta> l)
+	public List<Carta> ordenarPorIguales1( List<Carta> l)
 	{
 		/*ArrayList<Carta> a = ordenarPorNumero(l);
 		
-		ArrayList<Carta> r = new ArrayList<Carta>();
+		ArrayList<Carta> r = new ArrayList<>();
 		 
 		
 		
@@ -165,12 +166,12 @@ public class OrdenarCartas
 	 * @param l
 	 * @return
 	 */
-	public ArrayList<Carta> ordenarPorIguales2( ArrayList<Carta> l)
+	public List<Carta> ordenarPorIguales2( List<Carta> l)
 	{
 		
 		
-		ArrayList<Carta> r = new ArrayList<Carta>();
-		ArrayList<Carta> aux = new ArrayList<Carta>();
+		ArrayList<Carta> r = new ArrayList<>();
+		List<Carta> aux = new ArrayList<>();
 		
 		for(Carta c : l)
 		{
@@ -178,7 +179,7 @@ public class OrdenarCartas
 		}
 		
 		
-		HashMap<Integer,Integer> m = new  HashMap<Integer,Integer>();
+		HashMap<Integer,Integer> m = new  HashMap<>();
 		
 		for(Carta c : l)
 		{
@@ -194,7 +195,7 @@ public class OrdenarCartas
 			int v= m.get(i);
 			if(v > max) max=v;
 			
-			ArrayList<Carta> coinc= new ArrayList<Carta>();
+			ArrayList<Carta> coinc= new ArrayList<>();
 			for(Carta c : l)
 			{
 				if(c.getNum()==i) coinc.add(c);
@@ -248,7 +249,7 @@ public class OrdenarCartas
 	public ArrayList<Carta> ordenarPorEscalera( ArrayList<Carta> l)
 	{
 		ArrayList<Carta> a = ordenarPorNumero(l);
-		ArrayList<Carta> r = new ArrayList<Carta>();
+		ArrayList<Carta> r = new ArrayList<>();
 		 
 		
 		for(int i=0;i<l.size()-1;i++)

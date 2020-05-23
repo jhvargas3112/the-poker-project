@@ -1,8 +1,10 @@
 package com.poker.project.multimodule.base.manos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.poker.project.multimodule.base.Carta;
+import com.poker.project.multimodule.base.Palo;
 import com.poker.project.multimodule.base.constantes.ConstantesPR1;
 import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
 
@@ -11,10 +13,23 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  * @author victor
  *
  */
-public class EscaleraColor extends Mano{
+public class EscaleraColor extends Escalera
+{
+	Palo color;
+
+	public EscaleraColor(List<Carta> mano)
+	{
+		super(mano);
+		
+		tipo=ManoEnum.straight_flush;
+		nombre=ConstantesPR1.ESCALERA_COLOR;
+		color= mano.get(0).getPalo();
+	}
 
 	
 
+	
+/*
 	public EscaleraColor(ArrayList<Carta> mano )
 	{
 		
@@ -45,7 +60,7 @@ public class EscaleraColor extends Mano{
 	public String toString()
 	{
 		
-		StringBuffer sb = new StringBuffer();
+		StringBuilder sb = new StringBuilder();
 		sb.append(ConstantesPR1.ESCALERA_COLOR);
 		sb.append(" desde ");
 		sb.append(cartas.get(0).dameNombre());
@@ -57,6 +72,6 @@ public class EscaleraColor extends Mano{
 		
 	}
 	
-	
+	*/
 	
 }

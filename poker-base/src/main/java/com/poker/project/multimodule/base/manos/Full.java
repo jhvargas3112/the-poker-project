@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.manos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.poker.project.multimodule.base.Carta;
 import com.poker.project.multimodule.base.constantes.ConstantesPR1;
@@ -15,7 +16,7 @@ public class Full extends Mano
 {
 	
 	
-	public Full(ArrayList<Carta> mano )
+	public Full(List<Carta> mano )
 	{
 		
 			

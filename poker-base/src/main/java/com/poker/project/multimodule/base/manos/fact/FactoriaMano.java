@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.manos.fact;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.poker.project.multimodule.base.Carta;
 import com.poker.project.multimodule.base.manos.CartaMasAlta;
@@ -49,7 +50,7 @@ public class FactoriaMano
 	}
 	*/
 	
-	public Mano creaMano(ArrayList<Carta> cartas,ManoEnum me)
+	public Mano creaMano(List<Carta> cartas,ManoEnum me)
 	{
 		//System.out.println("fabricar "+ me.getEsp() +" con  de "+hc1+" y "+ hc2) ;
 		

@@ -1,6 +1,7 @@
 package com.poker.project.multimodule.base.manos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.poker.project.multimodule.base.Carta;
 import com.poker.project.multimodule.base.constantes.ConstantesPR1;
@@ -16,7 +17,7 @@ public class Trio extends Mano
 
 	
 	
-		public Trio(ArrayList<Carta> mano )
+		public Trio(List<Carta> mano )
 		{
 			
 				
