@@ -12,19 +12,19 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  * @author victor
  *
  */
-public class Escalera extends EscaleraMano //implements Comparable<Escalera>
+public abstract class EscaleraMano extends Mano //implements Comparable<Escalera>
 {
 	private Carta cartaMasAlta;
 	private Carta cartaMasBaja;
 
 	String nombre=ConstantesPR1.ESCALERA;
 	
-	public Escalera(List<Carta> mano )
+	public EscaleraMano(List<Carta> mano )
 	{
-			super(mano);
-			tipo=ManoEnum.straight;
+			
+			//tipo=ManoEnum.straight;
 			//cartas =  (new OrdenarCartas()).ordenarPorNumeroAscendente(mano);
-            /*cartas =  (new OrdenarCartas()).ordenarPorNumero(mano);
+            cartas =  (new OrdenarCartas()).ordenarPorNumero(mano);
                         
             // si la escalera contiene un as, pero su carta mas baja es un 2, poner el as como ultima 
 			if(cartas.get(4).getNum()==2 && cartas.get(0).getNum()==1)
@@ -37,7 +37,7 @@ public class Escalera extends EscaleraMano //implements Comparable<Escalera>
 			cartaMasAlta=cartas.get(0);
 			cartaMasBaja=cartas.get(4);
 
-	*/
+	
 	}
 	
 	@Override
@@ -47,12 +47,12 @@ public class Escalera extends EscaleraMano //implements Comparable<Escalera>
 		if(retorno!=0)
 			return retorno;
 		//retorno= Integer.compare(cartaMasAlta, ((Escalera)m2).cartaMasAlta);
-		retorno= cartaMasAlta.compareTo(((Escalera)m2).cartaMasAlta);
+		retorno= cartaMasAlta.compareTo(((EscaleraMano)m2).cartaMasAlta);
 		return retorno;
 	}
 
 	
-	
+	/*
 	public String toString()
 	{
 		StringBuilder sb = new StringBuilder();
@@ -63,10 +63,10 @@ public class Escalera extends EscaleraMano //implements Comparable<Escalera>
 		sb.append(" hasta ");
 		sb.append(cartas.get(4).dameNombre());
 		*/
-	
+	/*
 		return sb.toString();
 	}
-	
+	*/s
 	
 	
 }

@@ -13,24 +13,24 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  * @author victor
  *
  */
-public class CartaMasAlta extends ManoSegunCompararTodas implements Comparable<Mano> {
+public class ManoSegunCompararTodas extends Mano implements Comparable<Mano> {
 
 	/** Constructor de carta mas alta
 	 * 
 	 * @param mano
 	 */
-	public CartaMasAlta(List<Carta> mano)// ,ManoEnum me
+	public ManoSegunCompararTodas(List<Carta> mano)// ,ManoEnum me
 	{
-		super(mano);
-		tipo = ManoEnum.high_card;
-		//List<Carta> manoOrd = (new OrdenarCartas()).ordenarPorNumero(mano);
-		//cartas = manoOrd;
+
+		//tipo = ManoEnum.high_card;
+		List<Carta> manoOrd = (new OrdenarCartas()).ordenarPorNumero(mano);
+		cartas = manoOrd;
 
 	}
 
 	@Override
 	public int compareTo(Mano m2) {
-		/*int r = super.compareTo(m2);
+		int r = super.compareTo(m2);
 		if (r != 0)
 			return r;
 		int i = 0;
@@ -41,11 +41,10 @@ public class CartaMasAlta extends ManoSegunCompararTodas implements Comparable<M
 			i++;
 		}
 		
-		return r;*/
-		
-		return super.compareTo(m2);
+		return r;
 	}
 
+	/*
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		sb.append(ConstantesPR1.CARTA_MAS_ALTA);
@@ -54,6 +53,6 @@ public class CartaMasAlta extends ManoSegunCompararTodas implements Comparable<M
 		sb.append(cartas.get(0).dameNombre());
 
 		return sb.toString();
-	}
+	}*/
 
 }

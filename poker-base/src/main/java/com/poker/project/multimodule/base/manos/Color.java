@@ -12,7 +12,7 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  * @author victor
  *
  */
-public class Color extends CartaMasAlta {
+public class Color extends ManoSegunCompararTodas {
 	
 	
 	

@@ -13,7 +13,7 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  * @author victor
  *
  */
-public class EscaleraColor extends Escalera
+public class EscaleraColor extends EscaleraMano
 {
 	Palo color;
 
