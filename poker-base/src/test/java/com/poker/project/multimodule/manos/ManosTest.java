@@ -116,6 +116,8 @@ public class ManosTest
 	}
 
 
+	//DOBLES PAREJAS 
+	
 	/**
 	* Se compara DoblesParejasBajas con Pareja y debe dar 1
 	*/

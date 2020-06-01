@@ -9,6 +9,7 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
 
 /**
  * Mano Pareja
+ * Una pareja esta formada por dos cartas iguales y 3 cartas diferentes
  * @author victor
  *
  */

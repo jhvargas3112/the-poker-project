@@ -30,7 +30,7 @@ public abstract class Mano implements Comparable<Mano>
 	
 	
 	/// nuevo
-	public List<Carta> dameMano()
+	public List<Carta> dameCartas()
 	{
 		return cartas;
 	}

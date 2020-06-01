@@ -15,7 +15,10 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  */
 public class CartaMasAlta extends Mano implements Comparable<Mano> {
 
-	// Constructor de carta mas alta
+	/** Constructor de carta mas alta
+	 * 
+	 * @param mano
+	 */
 	public CartaMasAlta(List<Carta> mano)// ,ManoEnum me
 	{
 
