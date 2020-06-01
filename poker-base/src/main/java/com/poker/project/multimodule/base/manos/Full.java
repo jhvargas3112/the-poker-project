@@ -14,7 +14,8 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  */
 public class Full extends Mano
 {
-	
+	private int trio;
+	private int pareja;
 	
 	public Full(List<Carta> mano )
 	{
@@ -24,8 +25,30 @@ public class Full extends Mano
 			List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 			this.cartas=manoOrd;
 			
+			trio=cartas.get(2).getNum();
+			
+			if(cartas.get(0).getNum()==trio)
+				pareja= cartas.get(4).getNum();
+			else
+				pareja= cartas.get(0).getNum();
+			
 		
 	}
+	
+	@Override
+		public int compareTo(Mano m2) {
+			int retorno=super.compareTo(m2);
+			if(retorno!=0)
+				return retorno;
+			Full full2= (Full) m2;
+			retorno= Integer.compare(trio, full2.trio);
+			if(retorno!=0)
+				return retorno;
+			
+			retorno= Integer.compare(pareja, full2.pareja);
+			
+			return retorno;
+		}
 	
 	
 	public String toString()
@@ -34,9 +57,9 @@ public class Full extends Mano
 		StringBuffer sb = new StringBuffer();
 		sb.append(ConstantesPR1.FULL);
 		sb.append(" of ");
-		sb.append(cartas.get(0).dameNombre());
+		sb.append(trio);
 		sb.append("s and ");
-		sb.append(cartas.get(3).dameNombre());
+		sb.append(pareja);
 		sb.append("s");	//\n
 		
 	
