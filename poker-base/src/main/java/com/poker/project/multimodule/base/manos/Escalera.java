@@ -14,9 +14,10 @@ import com.poker.project.multimodule.base.util.ordenar.OrdenarCartas;
  */
 public class Escalera extends EscaleraMano //implements Comparable<Escalera>
 {
-	private Carta cartaMasAlta;
-	private Carta cartaMasBaja;
 
+	/*private Carta cartaMasAlta;
+	private Carta cartaMasBaja;
+*/
 	String nombre=ConstantesPR1.ESCALERA;
 	
 	public Escalera(List<Carta> mano )
@@ -44,11 +45,11 @@ public class Escalera extends EscaleraMano //implements Comparable<Escalera>
 	public int compareTo(Mano m2) {
 		
 		int retorno= super.compareTo(m2);
-		if(retorno!=0)
+		//if(retorno!=0)
 			return retorno;
 		//retorno= Integer.compare(cartaMasAlta, ((Escalera)m2).cartaMasAlta);
-		retorno= cartaMasAlta.compareTo(((Escalera)m2).cartaMasAlta);
-		return retorno;
+	//	retorno= cartaMasAlta.compareTo(((Escalera)m2).cartaMasAlta);
+	//s	return retorno;
 	}
 
 	

@@ -66,7 +66,7 @@ public abstract class EscaleraMano extends Mano //implements Comparable<Escalera
 	/*
 		return sb.toString();
 	}
-	*/s
+	*/
 	
 	
 }
