@@ -11,7 +11,7 @@ import com.poker.project.multimodule.base.manos.Escalera;
 import com.poker.project.multimodule.base.manos.EscaleraColor;
 import com.poker.project.multimodule.base.manos.Full;
 import com.poker.project.multimodule.base.manos.Mano;
-import com.poker.project.multimodule.base.manos.ManoEnum;
+import com.poker.project.multimodule.base.manos.NombreMano;
 import com.poker.project.multimodule.base.manos.Pareja;
 import com.poker.project.multimodule.base.manos.Poker;
 import com.poker.project.multimodule.base.manos.Trio;
@@ -50,21 +50,21 @@ public class FactoriaMano
 	}
 	*/
 	
-	public Mano creaMano(List<Carta> cartas,ManoEnum me)
+	public Mano creaMano(List<Carta> cartas,NombreMano me)
 	{
 		//System.out.println("fabricar "+ me.getEsp() +" con  de "+hc1+" y "+ hc2) ;
 		
 		Mano mano = null;
 		
-		if	   (me.equals(ManoEnum.pair)) 			 mano = new Pareja			(cartas);
-		else if(me.equals(ManoEnum.three_of_a_kind)) mano = new Trio			(cartas);
-		else if(me.equals(ManoEnum.two_pair)) 		 mano = new DoblesParejas	(cartas);
-		else if(me.equals(ManoEnum.straight)) 		 mano = new Escalera		(cartas);
-		else if(me.equals(ManoEnum.flush)) 			 mano = new Color			(cartas);
-		else if(me.equals(ManoEnum.full_house)) 	 mano = new Full			(cartas);
-		else if(me.equals(ManoEnum.four_of_a_kind))  mano = new Poker			(cartas);
-		else if(me.equals(ManoEnum.straight_flush))  mano = new EscaleraColor	(cartas);
-		else if(me.equals(ManoEnum.high_card)) 		 mano = new CartaMasAlta	(cartas);
+		if	   (me.equals(NombreMano.pair)) 			 mano = new Pareja			(cartas);
+		else if(me.equals(NombreMano.three_of_a_kind)) mano = new Trio			(cartas);
+		else if(me.equals(NombreMano.two_pair)) 		 mano = new DoblesParejas	(cartas);
+		else if(me.equals(NombreMano.straight)) 		 mano = new Escalera		(cartas);
+		else if(me.equals(NombreMano.flush)) 			 mano = new Color			(cartas);
+		else if(me.equals(NombreMano.full_house)) 	 mano = new Full			(cartas);
+		else if(me.equals(NombreMano.four_of_a_kind))  mano = new Poker			(cartas);
+		else if(me.equals(NombreMano.straight_flush))  mano = new EscaleraColor	(cartas);
+		else if(me.equals(NombreMano.high_card)) 		 mano = new CartaMasAlta	(cartas);
 		
 		
 		

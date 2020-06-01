@@ -17,12 +17,12 @@ public abstract class Mano implements Comparable<Mano>
 	
 	
 	
-	protected ManoEnum tipo;
+	protected NombreMano tipo;
 	protected List<Carta> cartas;
 	
 	
 	
-	public ManoEnum dameTipo()
+	public NombreMano dameTipo()
 	{
 		return tipo;
 	}

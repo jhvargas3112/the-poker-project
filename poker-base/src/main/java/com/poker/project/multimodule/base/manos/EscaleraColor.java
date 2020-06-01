@@ -21,7 +21,7 @@ public class EscaleraColor extends EscaleraMano
 	{
 		super(mano);
 		
-		tipo=ManoEnum.straight_flush;
+		tipo=NombreMano.straight_flush;
 		nombre=ConstantesPR1.ESCALERA_COLOR;
 		color= mano.get(0).getPalo();
 	}

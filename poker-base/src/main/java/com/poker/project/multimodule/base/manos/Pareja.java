@@ -23,7 +23,7 @@ public class Pareja extends Mano
 	{
 		
 			
-			tipo=ManoEnum.pair;
+			tipo=NombreMano.pair;
 			List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 			this.cartas=manoOrd;
 			
@@ -31,9 +31,9 @@ public class Pareja extends Mano
 	}
 
 	@Override
-	public ManoEnum dameTipo() {
+	public NombreMano dameTipo() {
 		
-		return ManoEnum.pair;
+		return NombreMano.pair;
 	}
 	
 	public String toString()

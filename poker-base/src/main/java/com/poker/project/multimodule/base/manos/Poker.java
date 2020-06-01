@@ -23,7 +23,7 @@ extends Mano{
 		{
 			
 				
-				tipo=ManoEnum.four_of_a_kind;
+				tipo=NombreMano.four_of_a_kind;
 				List<Carta> manoOrd =  (new OrdenarCartas()).ordenarPorIguales(mano);
 				this.cartas=manoOrd;
 				kind=cartas.get(0).getNum();

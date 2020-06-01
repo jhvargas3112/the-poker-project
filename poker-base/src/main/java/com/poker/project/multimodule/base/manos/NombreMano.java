@@ -6,7 +6,7 @@ package com.poker.project.multimodule.base.manos;
  * @author victor
  * Tipos de manos que  se pueden completar
  */
-public enum ManoEnum // implements Comparable<ManoEnum>
+public enum NombreMano
 
 {
 
@@ -24,7 +24,7 @@ public enum ManoEnum // implements Comparable<ManoEnum>
 	private String esp;
 	private int valor;
 	
-	ManoEnum(String s,int i)
+	NombreMano(String s,int i)
 	{
 		esp=s;
 		valor=i;
