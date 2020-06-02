@@ -60,6 +60,11 @@ public class CartaMasAltaTest
 			CartaMasAlta cartaMasAlta1 = new CartaMasAlta(cartasBase1);
 			CartaMasAlta cartaMasAlta2 = new CartaMasAlta(cartas2);
 			
+			System.out.println("Comparando");
+			System.out.println(cartaMasAlta1 + cartasBase1.toString());
+			System.out.println(cartaMasAlta2 + cartas2.toString());
+			System.out.println();
+			
 			Assert.assertTrue(cartaMasAlta1.compareTo(cartaMasAlta2)>=0);
 			cartas2.clear();
 		}
