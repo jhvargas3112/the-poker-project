@@ -1,4 +1,4 @@
-package manos;
+/* package manos;
 
 import java.util.ArrayList;
 import com.poker.project.multimodule.base.cartas.Carta;
@@ -27,4 +27,4 @@ public class Full extends Mano {
     
     return compareTo();
   }
-}
+} */

@@ -1,4 +1,4 @@
-package manos;
+/* package manos;
 
 import java.util.ArrayList;
 import com.poker.project.multimodule.base.cartas.Carta;
@@ -13,4 +13,4 @@ public class Pareja extends Mano {
   public int compareTo(Mano mano) {
     return 1;
   }
-}
+} */
