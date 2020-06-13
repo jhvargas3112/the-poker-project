@@ -2,13 +2,13 @@ package manos;
 
 import java.util.ArrayList;
 import com.poker.project.multimodule.base.cartas.Carta;
-import manos.exceptions.WrongNumberOfCardsException;
+import manos.exceptions.NotValidNumberOfCardsInPokerHandException;
 
 public class Mano implements Comparable<Mano> {
   protected ArrayList<Carta> cartas;
   protected NombreMano nombreMano;
 
-  public Mano(ArrayList<Carta> cartas) throws WrongNumberOfCardsException {
+  public Mano(ArrayList<Carta> cartas) throws NotValidNumberOfCardsInPokerHandException {
     setCartas(cartas);
   }
 
@@ -16,9 +16,9 @@ public class Mano implements Comparable<Mano> {
     return cartas;
   }
 
-  public void setCartas(ArrayList<Carta> cartas) throws WrongNumberOfCardsException {
+  public void setCartas(ArrayList<Carta> cartas) throws NotValidNumberOfCardsInPokerHandException {
     if (cartas.size() < 5) {
-      throw new WrongNumberOfCardsException();
+      throw new NotValidNumberOfCardsInPokerHandException();
     }
 
     this.cartas = cartas;

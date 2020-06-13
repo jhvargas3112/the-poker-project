@@ -1,0 +1,7 @@
+* Test aceptación: manos
+	- Una mano formada por una combinación de 5 cartas es una mano válida <- HECHO
+	- Una mano formada por una combinación de 4 cartas devuelve un ERROR <- HECHO
+
+* Test aceptación: Una mano de tipo FULL está constituida por 3 cartas del mismo valor (pueden tener distintas figuras) y 2 cartas distintas del mismo valor (pueden tener distintas figuras)
+	- Un FULL formado por Q de treboles, Q de corazones, Q de espadas, 2 de picas, 2 de corazones es una mano válida <- HECHO
+	- Un FULL formado por 2 de picas, 2 de corazones, 4 de diamantes, Q de treboles, Q de corazones devuelve un ERROR <- SUT incompleto
