@@ -1,4 +1,4 @@
-package manos.exceptions;
+package com.poker.project.multimodule.base.manos.exceptions;
 
 public class NotValidCardsInPokerHandException extends Exception {
   public NotValidCardsInPokerHandException() {

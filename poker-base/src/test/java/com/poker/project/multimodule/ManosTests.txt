@@ -1,7 +1,15 @@
-* Test aceptación: manos
-	- Una mano formada por una combinación de 5 cartas es una mano válida <- HECHO
-	- Una mano formada por una combinación de 4 cartas devuelve un ERROR <- HECHO
+* Test aceptación conjunto de cartas: cualquier tipo de mano debe estar formada exactamente por 5 cartas
+    - Una mano cualquiera formada por 4 cartas genera un ERROR <- HECHO
+    - Una mano cualquiera formada por 6 cartas genera un ERROR <- HECHO
 
-* Test aceptación: Una mano de tipo FULL está constituida por 3 cartas del mismo valor (pueden tener distintas figuras) y 2 cartas distintas del mismo valor (pueden tener distintas figuras)
+* Test aceptación: una mano de tipo FULL está constituida por 3 cartas del mismo valor (pueden tener distintas figuras) y 2 cartas distintas del mismo valor (pueden tener distintas figuras)
 	- Un FULL formado por Q de treboles, Q de corazones, Q de espadas, 2 de picas, 2 de corazones es una mano válida <- HECHO
-	- Un FULL formado por 2 de picas, 2 de corazones, 4 de diamantes, Q de treboles, Q de corazones devuelve un ERROR <- SUT incompleto
+	- Un FULL formado por 2 de picas, 2 de corazones, 4 de diamantes, Q de treboles, Q de corazones genera un ERROR <- HECHO
+
+* Test aceptación: una mano de tipo PAREJA está constituida por 2 cartas del mismo valor (pueden tener distintas figuras) y 3 cartas de valores diferentes
+    	- Una PAREJA formada por Q de corazones, Q de diamantes, 3 de picas, 6 de treboles, 7 de picas es una mano válida <-
+    	- Una PAREJA formada por Q de corazones, Q de diamantes, Q de treboles, 6 de treboles, 7 de picas genera un ERROR <-
+
+* Test aceptación: una mano de tipo CARTA ALTA es cualquier mano formada por 5 cartas de distintos valores no consecutivos (es una mano que no pertenece a ninguna de las otras categorías)
+    	- Una CARTA ALTA formada por 2 de picas, 4 de corazones, 7 de diamantes, J de tréboles ý K corazones es una mano válida <- HECHO
+    	- Una CARTA ALTA formada 3 de picas, 4 de diamantes, 5 de picas, 6 de corazones, 7 de tréboles genera un ERROR <- HECHO
