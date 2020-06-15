@@ -55,9 +55,25 @@ public class ValidadorManos {
       throw new NotValidNumberOfCardsInPokerHandException();
     }
 
+    cartas.sort(new ComparadorCartaPorNumero());
+
+    int i = 0;
+    int numCarta = cartas.get(0).getNum();
+    int cont = 1;
+
+    while (i < cartas.size() - 1) {
+      if (numCarta == cartas.get(i + 1).getNum()) {
+        ++cont;
+      } else {
+        numCarta = cartas.get(i + 1).getNum();
+      }
+
+      ++i;
+    }
+
     // TODO: implement the whole method body.
 
-    return true;
+    return !validarFull(cartas) && cont == 2;
   }
 
   public static boolean validarCartaAlta(ArrayList<Carta> cartas)
@@ -68,7 +84,7 @@ public class ValidadorManos {
 
     cartas.sort(new ComparadorCartaPorNumero());
 
-    return !validarFull(cartas);
+    return !validarPareja(cartas) && !validarFull(cartas);
   }
 
   public static boolean validarNumeroCartasMano(ArrayList<Carta> cartas) {

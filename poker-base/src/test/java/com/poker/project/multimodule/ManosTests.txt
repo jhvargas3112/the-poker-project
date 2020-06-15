@@ -3,13 +3,15 @@
     - Una mano cualquiera formada por 6 cartas genera un ERROR <- HECHO
 
 * Test aceptación: una mano de tipo FULL está constituida por 3 cartas del mismo valor (pueden tener distintas figuras) y 2 cartas distintas del mismo valor (pueden tener distintas figuras)
-	- Un FULL formado por Q de treboles, Q de corazones, Q de espadas, 2 de picas, 2 de corazones es una mano válida <- HECHO
+	- Un FULL formado por 2 de picas, 2 de corazones, Q de treboles, Q de corazones, Q de picas es una mano válida <- HECHO
+	- Un FULL formado por Q de corazones, 2 de picas, Q de treboles, Q de picas, 2 de corazones (es decir, con las cartas sin ningún orden específico) es una mano válida <- HECHO
 	- Un FULL formado por 2 de picas, 2 de corazones, 4 de diamantes, Q de treboles, Q de corazones genera un ERROR <- HECHO
 
 * Test aceptación: una mano de tipo PAREJA está constituida por 2 cartas del mismo valor (pueden tener distintas figuras) y 3 cartas de valores diferentes
-    	- Una PAREJA formada por Q de corazones, Q de diamantes, 3 de picas, 6 de treboles, 7 de picas es una mano válida <-
-    	- Una PAREJA formada por Q de corazones, Q de diamantes, Q de treboles, 6 de treboles, 7 de picas genera un ERROR <-
+    	- Una PAREJA formada por 3 de picas, 6 de treboles, 7 de picas, Q de corazones, Q de diamantes es una mano válida <- HECHO
+    	- Una PAREJA formada por 7 de picas, Q de corazones, 3 de picas, 6 de treboles, Q de diamantes (es decir, con las cartas sin ningún orden específico) es una mano válida <- HECHO
+    	- Una PAREJA formada por 6 de treboles, 7 de picas, Q de corazones, Q de diamantes, Q de treboles genera un ERROR <- HECHO
 
 * Test aceptación: una mano de tipo CARTA ALTA es cualquier mano formada por 5 cartas de distintos valores no consecutivos (es una mano que no pertenece a ninguna de las otras categorías)
-    	- Una CARTA ALTA formada por 2 de picas, 4 de corazones, 7 de diamantes, J de tréboles ý K corazones es una mano válida <- HECHO
-    	- Una CARTA ALTA formada 3 de picas, 4 de diamantes, 5 de picas, 6 de corazones, 7 de tréboles genera un ERROR <- HECHO
+    	- Una CARTA ALTA formada por 2 de picas, 4 de corazones, 7 de diamantes, J de tréboles y K corazones es una mano válida <- HECHO
+    	- Una CARTA ALTA formada 2 de picas, 2 de corazones, Q de treboles, Q de corazones, Q de picas genera un ERROR <- HECHO
